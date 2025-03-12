@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	h1{
+		color:orangered; 
+		text-align:center; 
+		font-size:80px;
+	}
+	button{
+		width : 150px;
+		height : 40px;
+		font-weight : bold;
+		font-size : 18px;
+		border : none;
+		background : lightpink;
+		color : white;
+		border-radius : 8px;
+	}
+	button:hover{
+		cursor : pointer;
+	}
+</style>
+</head>
+<body>
+	<h1>하하호호</h1>
+	
+	<hr>
+	<script>
+		function forwardRequestPage(){
+			location.href = 'http://127.0.0.1/bk/static/Request_Page.html';
+		}
+	</script>
+	<!-- location 객체의 href 속성에 요청URL을 대입해준다  -->
+	<!-- 127.0.0.1:80/static/Request_Page.html -->
+	<button onclick="forwardRequestPage();">주문하기</button>	
+</body>
+
+</html>
