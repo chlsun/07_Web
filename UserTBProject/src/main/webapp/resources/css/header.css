@@ -1,0 +1,225 @@
+*{
+	margin: 0;
+	padding: 0;
+    box-sizing: border-box;
+}
+
+.header p{
+  margin-bottom: 0;
+}
+.header{
+    height: 90px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 80px;
+    position: fixed;
+    z-index: 99;
+}
+.header.active{
+    background-color: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+}
+.header .logo{
+    height: 200px;
+    margin-top: 4px;
+}
+.header .navigation{
+    display: flex;
+    align-items: center;
+}
+.header .navigation .col{
+    margin-right: 60px;
+    font-size: 20px;
+    font-weight: 400;
+    color: #333333;
+    position: relative;
+    text-wrap: nowrap;
+    cursor: pointer;
+}
+.header .navigation .col.lastcol{
+    margin-right: 0;
+}
+.header .navigation .col.active{
+    font-weight: 700;
+    color: #000000;
+}
+.header .navigation .col.active::before{
+    content: '';
+    display: block;
+    background-color: #000000;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    position: absolute;
+    top: -5%;
+    right: -40%;
+}
+.header .right{
+    display: flex;
+    align-items: center;
+}
+.header .right .search{
+    position: relative;
+}
+.header .right .search .search-logo{
+    display: block;
+    position: absolute;
+    right: 2px;
+    top: 6px;
+    width: 26px;
+    height: 26px;
+}
+
+svg,img{
+	width: 100%;
+	height: 100%;
+}
+
+.header .right .search .search-logo svg{
+    fill: #333333;
+}
+.header .right .login-form{
+	display : flex;
+	align-items: center;
+}
+.header .right .login-form p{
+	margin-left: 14px;
+	font-size: 18px;
+	font-weight: 500;
+}
+.header .right .login-form a{
+	text-decoration: none;
+	color : black;
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 14px;
+}
+
+.header .right .logout-form{
+	display: flex;
+	align-items: center;
+}
+.header .right .logout-form .logout{
+	margin-left: 14px;
+	font-size: 18px;
+	font-weight: 500;
+	cursor: pointer;
+}
+.header .right .user-link{
+    width: 32px;
+    height: 32px;
+    border: 2px solid #333333;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 28px;
+}
+.header .right .user-like svg{
+    fill: #000000;
+}
+
+
+.modal-content.login-content{
+   border-radius: 16px;
+  	padding: 40px 30px;
+  	width: 500px;
+}
+
+.login-content .logo{
+  margin: auto 0;
+}
+
+.login-content .top-box{
+  border: 1px solid #cbcdcf;
+  border-bottom: 0;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  height: 70px;
+  width: 215px;
+  margin-bottom: -12px;
+}
+.login-content .top-box .logo{
+  height: 16px;
+  margin-left: 28px;
+  margin-right: 36px;
+  width: 16px;
+}
+.login-content .top-box .txt{
+  font-weight: 600;
+  margin-bottom: 0;
+}
+.login-content .login-main{
+  background-color: #fff;
+  border: 1px solid #cbcdcf;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 30px 20px;
+}
+
+.login-content .login-main .input-box{
+  background-color: #fff;
+    border: 1px solid #c5ccd2;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
+}
+.login-content .login-main .input-box input{
+  border: none;
+  box-sizing: border-box;
+  font-size: 18px;
+  height: 60px;
+  outline: none;
+  padding-left: 16px;
+  width: 100%;
+}
+.login-content .login-main .input-box .id-input{
+  border-bottom: 1px solid #c5ccd2;
+}
+.login-content .login-btn{
+  background-color: #3e3e3e;
+    border-radius: 12px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 700;
+    height: 50px;
+    margin-top: 28px;
+    width: 100%;
+}
+
+.login-content .helpBtn-wrapper{
+  display: flex;
+  margin-top: 20px;
+  color: #888888;
+  margin-right: 12px;
+}
+.login-content .helpBtn-wrapper div{
+  cursor: pointer;
+}
+
+.login-content .helpBtn-wrapper .findPw,
+.login-content .helpBtn-wrapper .findId{
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+}
+.login-content .helpBtn-wrapper .findPw::after,
+.login-content .helpBtn-wrapper .findId::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 75%;
+  border-right: 2px solid #DADADA;
+  margin-left: 12px;
+}
+.login-content .helpBtn-wrapper .signUp{
+  cursor: pointer;
+}

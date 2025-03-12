@@ -1,13 +1,14 @@
 package com.kh.myFirstWebProject.member.model.dto;
 
-import javax.xml.crypto.Data;
+import java.sql.Date;
+
 
 public class MemberDTO {
 	private String memberId;
 	private String memberPw;
 	private String memberName;
 	private String email;
-	private Data enrollDate;
+	private Date enrollDate;
 	
 	
 	
@@ -21,7 +22,7 @@ public class MemberDTO {
 	}
 	
 	
-	public MemberDTO(String memberId, String memberPw, String memberName, String email, Data enrollDate) {
+	public MemberDTO(String memberId, String memberPw, String memberName, String email, Date enrollDate) {
 		super();
 		this.memberId = memberId;
 		this.memberPw = memberPw;
@@ -55,10 +56,10 @@ public class MemberDTO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Data getEnrollDate() {
+	public Date getEnrollDate() {
 		return enrollDate;
 	}
-	public void setEnrollDate(Data enrollDate) {
+	public void setEnrollDate(Date enrollDate) {
 		this.enrollDate = enrollDate;
 	}
 	

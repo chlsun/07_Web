@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!-- 태그 라이브러리 지시어 -->
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -98,24 +102,36 @@
             <a class="nav-link js-scroll-trigger" href="#">사진게시판</a>
           </li>
           
+          <!-- loginMember 안에 빈문자열("") 이 올 경우
+          		 1. loginMember eq null
+          		 	=> false
+          		 2. empty loginMember
+          		 	=> true   
+          	-->
+          <c:choose>
+			<c:when test="${ empty loginMember }">
+				<li class="nav-item">
+          			<a class="nav-link js-scroll-trigger" data-toggle="modal" data-target="#log-in">로그인</a>
+          		</li>
+          		<li class="nav-item">
+          			<a class="nav-link js-scroll-trigger" href="join">회원가입</a>
+          		</li>
+			</c:when>
+			<c:otherwise>
+				<li class="nav-item">
+          			<a class="nav-link js-scroll-trigger" href="myPage">내정보</a>
+          		</li>
+          		<li class="nav-item">
+          			<a class="nav-link js-scroll-trigger" href="logout" onclick="return confirm('진짜로 로그아웃 하려고?')">로그아웃</a>
+          		</li>
+			</c:otherwise>
+          </c:choose>
           
-          
-          <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" data-toggle="modal" data-target="#log-in">로그인</a>
-          </li>
-          <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="join">회원가입</a>
-          </li>
           
          
 
           
-          <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="myPage">내정보</a>
-          </li>
-          <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="logout" onclick="return confirm('진짜로 로그아웃 하려고?')">로그아웃</a>
-          </li>
+          
           
           
         </ul>
