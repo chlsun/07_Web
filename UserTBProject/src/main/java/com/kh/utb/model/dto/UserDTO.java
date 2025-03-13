@@ -23,6 +23,13 @@ public class UserDTO {
 		this.userId = userId;
 		this.userPw = userPw;
 	}
+	
+	public UserDTO(String userId, String userPw, String userName) {
+		super();
+		this.userId = userId;
+		this.userPw = userPw;
+		this.userName = userName;
+	}
 
 
 	public UserDTO(int userNo, String userId, String userPw, String userName, Date enrollDate) {

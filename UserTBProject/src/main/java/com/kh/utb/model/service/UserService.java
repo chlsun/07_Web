@@ -9,5 +9,9 @@ public class UserService {
 		
 		return new UserDAO().login(user);
 	}
+	
+	public int signUp(UserDTO user) {
+		return new UserDAO().signUp(user);
+	}
 
 }

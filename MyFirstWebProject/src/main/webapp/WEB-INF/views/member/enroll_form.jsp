@@ -24,7 +24,7 @@
 	<jsp:include page="../include/header.jsp" />
 	
 	<div style="width : 80%; margin : auto; padding : 50px;">
-		<form action="회원가입매핑값" name="signup" id="signUpForm" method="post"
+		<form action="sign-up" name="signup" id="signUpForm" method="post"
 						style="margin-bottom: 0;">
 			<table
 				style="cellpadding: 0; cellspacing: 0; margin: 0 auto; width: 100%">
@@ -34,7 +34,7 @@
 					</td>							
 				</tr>
 				<tr>
-					<td><input type="text" name="" id="user_id"
+					<td><input type="text" name="memberId" id="user_id"
 						class="form-control tooltipstered" maxlength="14"
 						required="required" aria-required="true"
 						style="margin-bottom: 25px; width: 100%; height: 40px; border: 1px solid #d9d9de"
@@ -49,7 +49,7 @@
 				</tr>
 				<tr>
 					<td><input type="password" size="17" maxlength="20" id="password"
-						name="" class="form-control tooltipstered" 
+						name="memberPw" class="form-control tooltipstered" 
 						maxlength="20" required="required" aria-required="true"
 						style="ime-mode: inactive; margin-bottom: 25px; height: 40px; border: 1px solid #d9d9de"
 						placeholder="영문과 특수문자를 포함한 최소 8자"></td>
@@ -66,14 +66,18 @@
 						style="ime-mode: inactive; margin-bottom: 25px; height: 40px; border: 1px solid #d9d9de"
 						placeholder="비밀번호가 일치해야합니다."></td>
 				</tr>
-	
+				<tr>
+					<td>
+						<p id="error-msg"></p>
+					</td>
+				</tr>
 				<tr>
 					<td style="text-align: left">
 						<p><strong>이름을 입력해주세요.</strong>&nbsp;&nbsp;&nbsp;<span id="nameChk"></span></p>
 					</td>
 				</tr>
 				<tr>
-					<td><input type="text" name="" id="user_name"
+					<td><input type="text" name="memberName" id="user_name"
 						class="form-control tooltipstered" maxlength="6"
 						required="required" aria-required="true"
 						style="margin-bottom: 25px; width: 100%; height: 40px; border: 1px solid #d9d9de"
@@ -86,7 +90,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td><input type="email" name="" id="user_email"
+					<td><input type="email" name="email" id="user_email"
 						class="form-control tooltipstered" 
 						required="required" aria-required="true"
 						style="margin-bottom: 25px; width: 100%; height: 40px; border: 1px solid #d9d9de"
@@ -100,7 +104,7 @@
 				</tr>
 				<tr>
 					<td style="width: 100%; text-align: center; colspan: 2;"><input
-						type="submit" value="회원가입" 
+						type="submit" value="회원가입" onclick="return checkPw();"
 						class="btn form-control tooltipstered" id="signup-btn"
 						style="background-color: #52b1ff; margin-top: 0; height: 40px; color: white; border: 0px solid #388E3C; opacity: 0.8">
 					</td>
@@ -108,6 +112,50 @@
 			</table>
 		</form>
 	</div>
+	
+	<script>
+	
+	const signupBtn = document.querySelector("#signup-btn");
+	
+	const password = document.querySelector("#password");
+	const passwordCheck = document.querySelector("#password_check");
+	const errorMsg = document.querySelector("#error-msg");
+	
+	var passwordValue = "";
+	var passwordCheckValue = "";
+	
+	
+	function checkPw(){
+		if(passwordValue !== passwordCheckValue){
+			alert('비밀번호를 동일하게 입력해주세요!');
+			return false;
+
+		}else{
+			return true;
+		}
+	}
+	
+	password.addEventListener("keyup", ()=>{
+		passwordValue = password.value;
+		
+		if(passwordValue !== passwordCheckValue){
+			errorMsg.textContent = "비밀번호가 일치하지 않습니다.";
+		}else{
+			errorMsg.textContent = "";
+		}
+	});
+	
+	passwordCheck.addEventListener("keyup", ()=>{
+		passwordCheckValue = passwordCheck.value;
+		
+		if(passwordValue !== passwordCheckValue){
+			errorMsg.textContent = "비밀번호가 일치하지 않습니다.";
+		}else{
+			errorMsg.textContent = "";
+		}
+	});
+	
+	</script>
 	
 	<jsp:include page="../include/footer.jsp" />
 

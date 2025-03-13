@@ -20,6 +20,12 @@ public class MemberDTO {
 		this.memberId = memberId;
 		this.memberPw = memberPw;
 	}
+	public MemberDTO(String memberId, String memberName, String email) {
+		super();
+		this.memberId = memberId;
+		this.memberName = memberName;
+		this.email = email;
+	}
 	
 	
 	public MemberDTO(String memberId, String memberPw, String memberName, String email, Date enrollDate) {

@@ -65,4 +65,33 @@ public class UserDAO {
 		
 		return resultUser;
 	}
+	
+	
+	public int signUp(UserDTO user) {
+		
+		int result = 0;
+		
+		String sql = """
+				INSERT INTO 
+					TB_USER
+				VALUES
+					(SEQ_USER_NO.NEXTVAL, ?, ?, ?, DEFAULT)
+				""";
+		
+		try(Connection conn = DriverManager.getConnection(URL, USERNAME, USERPW);
+			PreparedStatement pstmt = conn.prepareStatement(sql)){
+			
+			pstmt.setString(1, user.getUserId());
+			pstmt.setString(2, user.getUserPw());
+			pstmt.setString(3, user.getUserName());
+			
+			result = pstmt.executeUpdate();
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+		
+	}
 }

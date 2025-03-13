@@ -223,3 +223,59 @@ svg,img{
 .login-content .helpBtn-wrapper .signUp{
   cursor: pointer;
 }
+.login-content .signup-main{
+  background-color: #fff;
+  border: 1px solid #cbcdcf;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 30px 20px;
+}
+
+.login-content .signup-main .input-box{
+  background-color: #fff;
+    
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
+}
+.login-content .signup-main .input-box input{
+  border-radius: 12px;
+  box-sizing: border-box;
+  font-size: 18px;
+  height: 60px;
+  outline: none;
+  padding-left: 16px;
+  width: 100%;
+  border: 1px solid #c5ccd2;
+  margin-bottom: 6px;
+}
+.login-content .signup-main .input-box #check-pw-label{
+	margin-bottom: 0px;
+}
+.login-content .signup-main .input-box .error-msg{
+	color: red;
+	margin-bottom: 6px;
+}
+.login-content .signup-main .input-box label{
+  font-size: 18;
+  font-weight: 600;
+  margin-bottom: 2px;
+  margin-left: 4px;
+}
+.login-content .signup-main .input-box .id-input{
+  border-bottom: 1px solid #c5ccd2;
+}
+.login-content .signup-btn{
+  background-color: #3e3e3e;
+    border-radius: 12px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 700;
+    height: 50px;
+    margin-top: 28px;
+    width: 100%;
+}

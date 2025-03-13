@@ -32,7 +32,7 @@
         	<c:when test="${ empty user }">
         		<div class="login-form">
   					<a class="login" data-bs-toggle="modal" data-bs-target="#myModal">로그인</a>
-  					<p class="sign-up">회원가입</p>
+  					<a class="sign-up" data-bs-toggle="modal" data-bs-target="#myModalPw">회원가입</a>
 				</div>
         	</c:when>
         	<c:otherwise>
@@ -79,5 +79,84 @@
   </div>
 </div>
 </div>
+
+
+<div class="modal" id="myModalPw">
+<div class="modal-dialog">
+  <div class="modal-content login-content">
+    <div class="logo">
+    </div>
+    <div class="top-box">
+      <div class="logo">
+        <img src="resources/img/login.png" alt="login">
+      </div>
+      <p class="txt">회원가입 </p>
+    </div>
+    <div class="signup-main">
+      <form action="sign-up" method="POST">
+        <div class="input-box">
+          <label for="id-label">아이디</label>
+          <input type="text" name="userId" class="id-input input" id="id-label" placeholder="아이디">
+
+          <label for="pw-label">비밀번호</label>
+          <input type="password" name="userPw" class="pw-input input" id="pw-label" placeholder="비밀번호">
+          
+          <label for="check-pw-label">비밀번호</label>
+          <input type="password" name="userPw" class="pw-input input" id="check-pw-label" placeholder="비밀번호확인">
+		  <p class="error-msg"></p>
+          <label for="name-label">이름</label>
+          <input type="text" name="userName" class="name-input input" id="name-label" placeholder="이름">
+        </div>
+        <button type="submit" class="signup-btn" onclick="return checkPw();">회원가입</button>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<script>
+	
+	const signupBtn = document.querySelector(".signup-btn");
+	
+	const password = document.querySelector("#pw-label");
+	const passwordCheck = document.querySelector("#check-pw-label");
+	const errorMsg = document.querySelector(".error-msg");
+	
+	var passwordValue = "";
+	var passwordCheckValue = "";
+	
+	
+	function checkPw(){
+		if(passwordValue !== passwordCheckValue){
+			alert('비밀번호를 동일하게 입력해주세요!');
+			return false;
+
+		}else{
+			return true;
+		}
+	}
+	
+	password.addEventListener("keyup", ()=>{
+		passwordValue = password.value;
+		
+		if(passwordValue !== passwordCheckValue){
+			errorMsg.textContent = "비밀번호가 일치하지 않습니다.";
+		}else{
+			errorMsg.textContent = "";
+		}
+	});
+	
+	passwordCheck.addEventListener("keyup", ()=>{
+		passwordCheckValue = passwordCheck.value;
+		
+		if(passwordValue !== passwordCheckValue){
+			errorMsg.textContent = "비밀번호가 일치하지 않습니다.";
+		}else{
+			errorMsg.textContent = "";
+		}
+	});
+	
+	</script>
 </body>
 </html>
