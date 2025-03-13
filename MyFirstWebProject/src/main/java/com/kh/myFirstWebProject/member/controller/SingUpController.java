@@ -37,7 +37,7 @@ public class SingUpController extends HttpServlet {
 		String path = request.getContextPath();
 		
 		
-		response.sendRedirect(result != 0 ? path : path + "/join");
+		response.sendRedirect(result != 0 ? path + "/join" : path);
 		
 		
 	}
