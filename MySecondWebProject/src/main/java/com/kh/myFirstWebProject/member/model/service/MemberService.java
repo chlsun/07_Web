@@ -20,7 +20,35 @@ public class MemberService {
 		// static 메서드는 위에 방법처럼 import하면 클래스명 선언 안하고 메서드 사용 가능!!
 		SqlSession sqlSession = getSqlSession();
 		
-		return null;
+		// 유효성 검증 => 패스(원래 해야됨)
+		MemberDTO loginMember = new MemberDAO().login(sqlSession, member);
+		
+		sqlSession.close();
+		
+		return loginMember;
+	}
+	
+	
+	// 의사결정코드
+	public int signUp(MemberDTO member) {
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		
+		
+		// 아이디 중복검사
+		if(new MemberDAO().checkId(sqlSession, member.getMemberId())) {
+			sqlSession.close();
+			return 0; 
+		}
+		
+		
+		int result = new MemberDAO().signUp(sqlSession, member);
+		
+		sqlSession.commit();
+		sqlSession.close();
+		
+		return result;
 	}
 	
 

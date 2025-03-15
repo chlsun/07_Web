@@ -37,7 +37,7 @@ public class SignInController extends HttpServlet {
 				request.getParameter("memberPw")
 				);
 		
-		MemberDTO loginMember = new MemberService().signIn(member);
+		MemberDTO loginMember = new MemberService().login(member);
 		// case 1. 아이디와 비밀번호 값이 일치했다면
 		//		=> 필드값에 회원정보가 담겨있는 MemberDTO객체의 주소값
 		// case 2. 유효성 검증에 통과하지 못했거나, 아이디 또는 비밀번호가 일치하지 않았다면

@@ -23,7 +23,7 @@ public class Template {
 			// 1단계 : SqlSessionFactoryBuilder 객체 생성
 			//		  그냥 생성자 호출하면됨
 			// 2단계 : SqlSessionFactory 객체 생성
-			//		  build(입력스트림) 스트림으로부터 환경설정파일의 값을 읽어오면서 SqlSessionFactory객체 생서
+			//		  build(입력스트림) 스트림으로부터 환경설정파일의 값을 읽어오면서 SqlSessionFactory객체 생성
 			// 3단계 : SqlSession 객체 생성
 			
 			

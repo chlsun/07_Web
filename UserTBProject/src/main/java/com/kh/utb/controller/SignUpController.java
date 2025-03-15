@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.kh.utb.model.dto.UserDTO;
 import com.kh.utb.model.service.UserService;
@@ -30,12 +31,14 @@ public class SignUpController extends HttpServlet {
 		int result = new UserService().signUp(user);
 		
 		String path = request.getContextPath();
+		HttpSession session = request.getSession();
 		
 		if(result > 0 ) {
-			response.sendRedirect(path);
+			session.setAttribute("message", "회원가입에 실패하셨습니다.");			
 		}else {
-			response.sendRedirect(path);
+			session.setAttribute("message", "회원가입에 성공하셨습니다.");
 		}
+		response.sendRedirect(path);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

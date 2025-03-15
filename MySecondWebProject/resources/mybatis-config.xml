@@ -3,6 +3,12 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
  <configuration>
+ 
+ 	<!-- typeAliases : 자바타입 별칭 짓기 -->
+	 <typeAliases>
+ 		<typeAlias type="com.kh.myFirstWebProject.member.model.dto.MemberDTO" alias="memberDTO" />
+ 	</typeAliases>
+ 	
 	<!-- 
 		environments : MyBatis를 이용해서 우리가 연동할 DBMS의 정보를 등록하는 태그
 	 -->
@@ -28,4 +34,11 @@
 	 		</dataSource>
 	 	</environment>
 	 </environments>
+	 
+	 <!-- mappers : 실행할 SQL문을 기록해둔 mapper파일을 등록 -->
+	 <mappers>
+	 	<mapper resource="/mappers/member-mapper.xml" />
+	 </mappers>
+	 
+	 
  </configuration>

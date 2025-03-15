@@ -12,6 +12,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+
+
   <header class="header active">
     <div class="logo">
         <img src="resources/img/mainlogo.png" alt="Main Logo" />
@@ -62,7 +64,7 @@
       <p class="txt">로그인 </p>
     </div>
     <div class="login-main">
-      <form action="/utb/login" method="POST">
+      <form action="login" method="POST">
         <div class="input-box">
           <input type="text" name="userId" class="id-input input" placeholder="아이디">
           <input type="password" name="userPw" class="pw-input input" placeholder="비밀번호">
@@ -115,7 +117,15 @@
 </div>
 
 
+<c:if test="${ not empty sessionScope.message }">
+	<script>
+		alert('${sessionScope.message}');
+	</script>
+	<c:remove var="message" scope="session"/>
+</c:if>
 <script>
+
+	
 	
 	const signupBtn = document.querySelector(".signup-btn");
 	

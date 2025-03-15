@@ -35,8 +35,6 @@ public class SingUpController extends HttpServlet {
 		int result = new MemberService().signUp(member);
 		
 		String path = request.getContextPath();
-		
-		
 		response.sendRedirect(result != 0 ? path + "/join" : path);
 		
 		

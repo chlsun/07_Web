@@ -29,13 +29,16 @@ public class LoginController extends HttpServlet {
 		
 		UserDTO resultUser = new UserService().login(user);
 		
-		System.out.println(resultUser);
-		
+
 		HttpSession session = request.getSession();
+		String contextPath = request.getContextPath();	
 		
-		session.setAttribute("user", resultUser);
-		
-		String contextPath = request.getContextPath();		
+		if(resultUser != null) {
+			session.setAttribute("message", "로그인 성공");
+			session.setAttribute("user", resultUser);
+		}else {
+			session.setAttribute("message", "아이디 비밀번호가 일치하지 않습니다.");
+		}
 		
 		response.sendRedirect(contextPath);
 		
